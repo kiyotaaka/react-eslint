@@ -1,0 +1,29 @@
+@import '../../../styles/base/mixin';
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  &__block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  &__today {
+    display: flex;
+    flex-direction: column;
+    color: var(--clr-text);
+    h4 {
+      font-weight: 700;
+      @include adaptiv-font(20, 12, 20);
+    }
+    p {
+      @include adaptiv-font(20, 12, 20);
+    }
+  }
+}

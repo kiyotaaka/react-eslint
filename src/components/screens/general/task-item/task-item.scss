@@ -1,0 +1,37 @@
+.task-item {
+  background-color: var(--clr-nav);
+  width: 100%;
+  padding: 15px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--clr-text);
+    h4 {
+      font-weight: 600;
+      color: var(--clr-text-v2);
+    }
+    p {
+      color: var(--clr-text);
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      display: -webkit-box;
+      overflow: hidden;
+    }
+    &-date {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--clr-text);
+      margin-top: 20px;
+    }
+  }
+  &__status {
+  }
+}

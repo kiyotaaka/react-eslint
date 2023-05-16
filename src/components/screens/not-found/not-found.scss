@@ -1,0 +1,30 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  img {
+    max-width: 500px;
+    pointer-events: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: -50px;
+    text-align: center;
+    h2 {
+      font-weight: 600;
+      color: var(--clr-text);
+    }
+    p {
+      color: var(--clr-text);
+    }
+  }
+}
