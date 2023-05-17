@@ -8,9 +8,7 @@ import { FaUserAlt } from 'react-icons/fa';
 import { ImSearch } from 'react-icons/im';
 import { MdSunny } from 'react-icons/md';
 import { UiInput, UiSelect, UiSwitch } from 'src/components/ui';
-import { useActions } from 'src/hooks/useActions';
-import { useAppSelector } from 'src/hooks/useAppSelector';
-import { useResponsive } from 'src/hooks/useResponsive';
+import { useActions, useAppSelector, useResponsive } from 'src/hooks';
 
 import './header.scss';
 
@@ -18,7 +16,7 @@ const Header: React.FC = () => {
   const { mode, drawerShow } = useAppSelector((state) => state.custom);
   const { toggleColorMode, toggleDrawer } = useActions();
   const { isMobile } = useResponsive(992);
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const lang = Cookies.get('lang');
 
@@ -42,7 +40,7 @@ const Header: React.FC = () => {
           />
         ) : (
           <UiInput
-            placeholder="Искать задачу"
+            placeholder={`${t('placeholderSearch')}`}
             style={{ width: '300px' }}
             suffix={<ImSearch color="#94A3B8" size={18} />}
             size="large"
@@ -72,7 +70,7 @@ const Header: React.FC = () => {
       </div>
       {isMobile && (
         <UiInput
-          placeholder="Искать задачу"
+          placeholder={`${t('placeholderSearch')}`}
           suffix={<ImSearch color="#94A3B8" size={18} />}
           size="large"
         />

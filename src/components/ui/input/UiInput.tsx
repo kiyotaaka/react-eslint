@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 import { ConfigProvider, Input, InputProps } from 'antd';
 import React from 'react';
-import { useAppSelector } from 'src/hooks/useAppSelector';
+import { useAppSelector } from 'src/hooks';
 
 const UiInput: React.FC<InputProps> = (_props) => {
   const { mode } = useAppSelector((s) => s.custom);

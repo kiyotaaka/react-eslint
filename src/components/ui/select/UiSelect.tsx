@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/indent */
 import { ConfigProvider, Select, SelectProps } from 'antd';
 import React from 'react';
-import { useAppSelector } from 'src/hooks/useAppSelector';
+import { useAppSelector } from 'src/hooks';
 
 const UiSelect: React.FC<SelectProps> = (_props) => {
   const { mode } = useAppSelector((state) => state.custom);
