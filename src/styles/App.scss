@@ -3,7 +3,6 @@
   font-family: 'Montserrat', sans-serif;
   line-height: 1.5;
   background-color: var(--clr-bg);
-  // transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
   &.light {
     --clr-bg: #e2e8f0;
     --clr-text: #475569;
@@ -32,10 +31,4 @@ footer {
   border-radius: 8px;
   text-align: center;
   font-weight: 600;
-}
-.ant-result-title {
-  color: var(--clr-text) !important;
-}
-.ant-result-subtitle {
-  color: var(--clr-text) !important;
 }

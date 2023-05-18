@@ -2,6 +2,7 @@
   .main {
     padding: 20px;
     margin-left: 256px;
+    margin-right: 240px;
     min-height: 100vh;
     transition: all 0.2s;
     flex: 1 1 auto;
@@ -10,9 +11,13 @@
     gap: 20px;
     @media (max-width: 992px) {
       margin-left: 0;
+      margin-right: 0;
     }
-    &.active {
+    &.activeRoute {
       margin-left: 0px;
+    }
+    &.activeInfo {
+      margin-right: 0px;
     }
     &.dark {
       background-color: #0f172a;

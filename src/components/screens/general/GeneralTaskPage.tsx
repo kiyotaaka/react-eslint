@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom';
 
 import { GeneralTaskItem } from './task-item/GeneralTaskItem';
 
+import './general-task-page.scss';
+
 const GeneralTaskPage: React.FC = () => {
   const { pathname } = useLocation();
   const [lists, setLists] = React.useState([1, 2, 3, 4, 5]);
@@ -27,13 +29,7 @@ const GeneralTaskPage: React.FC = () => {
   return (
     <motion.div variants={container} initial="hidden" animate="visible">
       <AnimatePresence>
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            gap: 20,
-          }}
-        >
+        <div className="tasks">
           {lists.map((prev) => (
             <motion.div variants={child} key={prev}>
               <GeneralTaskItem />

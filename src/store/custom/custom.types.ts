@@ -1,4 +1,5 @@
 export interface ICustomType {
   mode: 'dark' | 'light';
-  drawerShow: boolean;
+  drawerShowRoute: boolean;
+  drawerShowInfo: boolean;
 }

@@ -1,9 +1,12 @@
 export const EN = {
   translation: {
-    title: 'TODO LIST',
+    title: 'TO-DO LIST',
+    userTitle: 'Hi, User!',
     addText: 'Add new task',
     author: 'Made with ❤️ by',
+    authorName: 'Projected by Atabek Otepbergenov',
     placeholderSearch: 'Search task',
+    darkmode: 'Darkmode',
     all: 'All tasks',
     today: 'Today tasks',
     important: 'Important tasks',
@@ -12,5 +15,6 @@ export const EN = {
     directories: 'Directories',
     mainDirectories: 'Main',
     newDirectories: 'New',
+    notFound: 'Sorry, the page you visited does not exist.',
   },
 };

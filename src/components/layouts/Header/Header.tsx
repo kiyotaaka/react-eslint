@@ -3,18 +3,18 @@ import { Slant as Hamburger } from 'hamburger-react';
 import Cookies from 'js-cookie';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { BsFillBellFill, BsMoonStarsFill } from 'react-icons/bs';
+import { BsFillBellFill } from 'react-icons/bs';
 import { FaUserAlt } from 'react-icons/fa';
 import { ImSearch } from 'react-icons/im';
-import { MdSunny } from 'react-icons/md';
-import { UiInput, UiSelect, UiSwitch } from 'src/components/ui';
+import { UiInput, UiSelect } from 'src/components/ui';
 import { useActions, useAppSelector, useResponsive } from 'src/hooks';
+import { todayDate } from 'src/utils/date';
 
 import './header.scss';
 
 const Header: React.FC = () => {
-  const { mode, drawerShow } = useAppSelector((state) => state.custom);
-  const { toggleColorMode, toggleDrawer } = useActions();
+  const { mode, drawerShowRoute, drawerShowInfo } = useAppSelector((state) => state.custom);
+  const { toggleDrawerRoute, toggleDrawerInfo } = useActions();
   const { isMobile } = useResponsive(992);
   const { i18n, t } = useTranslation();
 
@@ -25,18 +25,15 @@ const Header: React.FC = () => {
     Cookies.set('lang', value);
   };
 
-  const onChangeMode = (checked: boolean) => {
-    if (checked) toggleColorMode('dark');
-    else toggleColorMode('light');
-  };
   return (
     <header className="header">
       <div className="header__inner">
         {isMobile ? (
           <Hamburger
-            toggled={!drawerShow}
+            toggled={!drawerShowRoute}
+            duration={0.3}
             color={mode === 'dark' ? '#e2e8f0' : '#0f172a'}
-            onToggle={() => toggleDrawer(!drawerShow)}
+            onToggle={() => toggleDrawerRoute(!drawerShowRoute)}
           />
         ) : (
           <UiInput
@@ -46,16 +43,14 @@ const Header: React.FC = () => {
             size="large"
           />
         )}
+        <div className="header__title">
+          {isMobile && <h4>{t('title')}</h4>}
+          <p>{todayDate}</p>
+        </div>
         <div className="header__block">
           <Badge count={5} color="red" size="small">
             <BsFillBellFill color="#5B21B6" size={25} cursor="pointer" />
           </Badge>
-          <UiSwitch
-            checked={mode === 'dark'}
-            onChange={onChangeMode}
-            checkedChildren={<BsMoonStarsFill color="#fff" />}
-            unCheckedChildren={<MdSunny color="yellow" />}
-          />
           <UiSelect
             defaultValue={lang || 'RU'}
             onChange={handleChangeLang}
@@ -65,7 +60,14 @@ const Header: React.FC = () => {
               { value: 'QQ', label: 'QQ' },
             ]}
           />
-          <Avatar size={35} icon={<FaUserAlt />} />
+          {isMobile && (
+            <Avatar
+              size={35}
+              icon={<FaUserAlt />}
+              style={{ cursor: 'pointer' }}
+              onClick={() => toggleDrawerInfo(!drawerShowInfo)}
+            />
+          )}
         </div>
       </div>
       {isMobile && (

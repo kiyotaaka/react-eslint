@@ -8,7 +8,8 @@ const mode = Cookies.get('mode');
 
 const initialState: ICustomType = {
   mode: mode === 'dark' ? 'dark' : 'light',
-  drawerShow: true,
+  drawerShowRoute: true,
+  drawerShowInfo: true,
 };
 
 const customSlice = createSlice({
@@ -22,8 +23,11 @@ const customSlice = createSlice({
         Cookies.set('mode', (state.mode = 'dark'));
       }
     },
-    toggleDrawer(state, { payload }: PayloadAction<boolean>) {
-      state.drawerShow = payload;
+    toggleDrawerRoute(state, { payload }: PayloadAction<boolean>) {
+      state.drawerShowRoute = payload;
+    },
+    toggleDrawerInfo(state, { payload }: PayloadAction<boolean>) {
+      state.drawerShowInfo = payload;
     },
   },
 });

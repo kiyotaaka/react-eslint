@@ -1,4 +1,4 @@
-.drawer {
+.drawer-route {
   position: fixed;
   top: 0;
   left: 0;
@@ -8,7 +8,7 @@
   background-color: #f1f5f9;
   &.dark {
     background-color: #141e33;
-    &__submenu {
+    .drawer-route__submenu {
       h2 {
         color: #94a3b8;
       }

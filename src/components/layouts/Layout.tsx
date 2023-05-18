@@ -7,20 +7,27 @@ import { useAppSelector, useResponsive } from 'src/hooks';
 
 import { UiFloatButton } from '../ui';
 
-import { DrawerComp } from './Drawer/Drawer';
 import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
+import { DrawerInfo, DrawerRoute } from './Drawer';
 
 import './Layout.scss';
 
 const Layout: React.FC = () => {
-  const { drawerShow } = useAppSelector((state) => state.custom);
+  const { drawerShowRoute, drawerShowInfo } = useAppSelector((state) => state.custom);
   const { isMobile } = useResponsive(992);
   const { t } = useTranslation();
   return (
     <div className="layout">
-      <DrawerComp />
-      <main className={clsx('main', !drawerShow && 'main active')}>
+      <DrawerRoute />
+      <DrawerInfo />
+      <main
+        className={clsx(
+          'main',
+          !drawerShowRoute && 'main activeRoute',
+          !drawerShowInfo && 'main activeInfo',
+        )}
+      >
         <Header />
         <Outlet />
         <Footer />

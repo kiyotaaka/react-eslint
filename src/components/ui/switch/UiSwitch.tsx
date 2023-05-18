@@ -9,7 +9,7 @@ const UiSwitch: React.FC<SwitchProps> = (_props) => (
       },
     }}
   >
-    <Switch {..._props}>UiSwitch</Switch>
+    <Switch {..._props} />
   </ConfigProvider>
 );
 

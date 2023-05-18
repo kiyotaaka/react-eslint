@@ -6,27 +6,27 @@ import { useTranslation } from 'react-i18next';
 import { UiButton } from 'src/components/ui';
 import { useActions, useAppSelector, useResponsive } from 'src/hooks';
 
-import { DrawerMenu } from './Menu/Menu';
+import { DrawerRouteMenu } from './DrawerRouteMenu/DrawerRouteMenu';
 
-import './drawer.scss';
+import './drawer-route.scss';
 
-const DrawerComp: React.FC = () => {
+const DrawerRoute: React.FC = () => {
   const [isDrawer, setIsDrawer] = React.useState(false);
 
-  const { mode, drawerShow } = useAppSelector((s) => s.custom);
+  const { mode, drawerShowRoute } = useAppSelector((s) => s.custom);
 
   const { isMobile } = useResponsive(992);
-  const { toggleDrawer } = useActions();
+  const { toggleDrawerRoute } = useActions();
   const { t } = useTranslation();
 
   const onCloseDrawer = () => {
-    toggleDrawer(!drawerShow);
+    toggleDrawerRoute(!drawerShowRoute);
   };
 
   React.useEffect(() => {
-    if (isMobile) setIsDrawer(!drawerShow);
-    else setIsDrawer(drawerShow);
-  }, [drawerShow, isMobile]);
+    if (isMobile) setIsDrawer(!drawerShowRoute);
+    else setIsDrawer(drawerShowRoute);
+  }, [drawerShowRoute, isMobile]);
 
   return (
     <Drawer
@@ -38,16 +38,16 @@ const DrawerComp: React.FC = () => {
       open={isDrawer}
       mask={isMobile}
     >
-      <div className={clsx('drawer', `drawer ${mode}`)}>
-        <div className="drawer__submenu">
+      <div className={clsx('drawer-route', `drawer-route ${mode}`)}>
+        <div className="drawer-route__submenu">
           <h2>{t('title')} 🔥</h2>
           <UiButton>{t('addText')}</UiButton>
         </div>
-        <div className="drawer__menu">
-          <DrawerMenu />
+        <div className="drawer-route__menu">
+          <DrawerRouteMenu />
         </div>
       </div>
     </Drawer>
   );
 };
-export { DrawerComp };
+export { DrawerRoute };

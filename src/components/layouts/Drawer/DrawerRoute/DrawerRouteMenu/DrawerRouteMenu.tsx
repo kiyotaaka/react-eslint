@@ -4,14 +4,14 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useActions, useAppSelector, useResponsive } from 'src/hooks';
 
-import { useRoutes } from '../../routes';
+import { getRoutes } from '../../../routes';
 
-const DrawerMenu: React.FC = () => {
+const DrawerRouteMenu: React.FC = () => {
   const { mode, drawerShow } = useAppSelector((s) => s.custom);
   const { pathname } = useLocation();
   const { isMobile } = useResponsive(992);
   const { toggleDrawer } = useActions();
-  const routes = useRoutes();
+  const routes = getRoutes();
   const navigate = useNavigate();
   const onClickRoute: MenuProps['onClick'] = (e) => {
     navigate(e.key);
@@ -43,4 +43,4 @@ const DrawerMenu: React.FC = () => {
   );
 };
 
-export { DrawerMenu };
+export { DrawerRouteMenu };

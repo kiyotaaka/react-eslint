@@ -6,11 +6,12 @@ import { ImFolderOpen } from 'react-icons/im';
 import { MdOutlineNotificationImportant, MdToday } from 'react-icons/md';
 import { TbNotesOff } from 'react-icons/tb';
 
-export const useRoutes = () => {
+export const getRoutes = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = useTranslation();
   const routes: MenuProps['items'] = [
     {
-      key: '/all',
+      key: '/',
       label: t('all'),
       icon: <BsUiRadiosGrid />,
     },
@@ -33,10 +34,6 @@ export const useRoutes = () => {
       key: '/uncompleted',
       label: t('uncompleted'),
       icon: <TbNotesOff />,
-    },
-    {
-      type: 'divider',
-      style: { borderColor: '#8497AC' },
     },
     {
       key: '/directories',
