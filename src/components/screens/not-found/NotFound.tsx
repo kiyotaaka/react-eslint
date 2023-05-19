@@ -16,7 +16,7 @@ const NotFound: React.FC = () => {
       <div className="not-found__content">
         <h2>404</h2>
         <p>{t('notFound')}</p>
-        <UiButton onClick={() => navigate('/all')}>Назад</UiButton>
+        <UiButton onClick={() => navigate('/')}>{t('back')}</UiButton>
       </div>
     </div>
   );

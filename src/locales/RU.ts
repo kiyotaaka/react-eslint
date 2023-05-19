@@ -16,5 +16,6 @@ export const RU = {
     mainDirectories: 'Главный',
     newDirectories: 'Новый',
     notFound: 'Извините, страница, которую вы посетили, не существует.',
+    back: 'Назад',
   },
 };

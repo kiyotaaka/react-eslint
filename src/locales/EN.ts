@@ -16,5 +16,6 @@ export const EN = {
     mainDirectories: 'Main',
     newDirectories: 'New',
     notFound: 'Sorry, the page you visited does not exist.',
+    back: 'Back',
   },
 };
