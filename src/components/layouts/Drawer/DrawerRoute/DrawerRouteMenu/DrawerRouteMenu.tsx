@@ -7,16 +7,16 @@ import { useActions, useAppSelector, useResponsive } from 'src/hooks';
 import { getRoutes } from '../../../routes';
 
 const DrawerRouteMenu: React.FC = () => {
-  const { mode, drawerShow } = useAppSelector((s) => s.custom);
+  const { mode, drawerShowRoute } = useAppSelector((s) => s.custom);
   const { pathname } = useLocation();
   const { isMobile } = useResponsive(992);
-  const { toggleDrawer } = useActions();
+  const { toggleDrawerRoute } = useActions();
   const routes = getRoutes();
   const navigate = useNavigate();
   const onClickRoute: MenuProps['onClick'] = (e) => {
     navigate(e.key);
     if (isMobile) {
-      toggleDrawer(!drawerShow);
+      toggleDrawerRoute(!drawerShowRoute);
     }
   };
   return (
