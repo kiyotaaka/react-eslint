@@ -14,7 +14,6 @@
     "@types/js-cookie": "^3.0.3",
     "antd": "^5.4.7",
     "clsx": "^1.2.1",
-    "framer-motion": "^10.12.10",
     "hamburger-react": "^2.5.0",
     "i18next": "^22.4.15",
     "js-cookie": "^3.0.5",

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const api = createApi({
   reducerPath: 'api/tasks',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://64610c83185dd9877e3602eb.mockapi.io/api/',
+    baseUrl: import.meta.env.VITE_API_KEY,
   }),
   refetchOnFocus: true,
   refetchOnMountOrArgChange: true,
