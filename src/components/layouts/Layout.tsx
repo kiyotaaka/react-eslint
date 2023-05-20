@@ -2,9 +2,11 @@ import clsx from 'clsx';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { IoMdAdd } from 'react-icons/io';
-import { Outlet } from 'react-router-dom';
-import { useAppSelector, useResponsive } from 'src/hooks';
+import { Outlet, useLocation } from 'react-router-dom';
+// eslint-disable-next-line object-curly-newline
+import { useActions, useAppSelector, useLabel, useResponsive } from 'src/hooks';
 
+import { Head } from '../shared';
 import { UiFloatButton } from '../ui';
 
 import { Footer } from './Footer/Footer';
@@ -15,8 +17,15 @@ import './Layout.scss';
 
 const Layout: React.FC = () => {
   const { drawerShowRoute, drawerShowInfo } = useAppSelector((state) => state.custom);
+  const { pathname } = useLocation();
+  const { setLabel } = useActions();
+  const label = useLabel(pathname);
   const { isMobile } = useResponsive(992);
   const { t } = useTranslation();
+  React.useEffect(() => {
+    if (label) setLabel(label);
+    else setLabel('/');
+  }, [label, setLabel]);
   return (
     <div className="layout">
       <DrawerRoute />
@@ -29,6 +38,7 @@ const Layout: React.FC = () => {
         )}
       >
         <Header />
+        <Head />
         <Outlet />
         <Footer />
       </main>

@@ -1,5 +1,11 @@
 import React from 'react';
+import { useAppSelector } from 'src/hooks';
 
-const Head: React.FC = () => <div>Head</div>;
+import './head.scss';
+
+const Head: React.FC = () => {
+  const { menuLabel } = useAppSelector((s) => s.custom);
+  return <h2 className="head">{menuLabel}</h2>;
+};
 
 export { Head };

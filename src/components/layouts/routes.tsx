@@ -1,4 +1,5 @@
 import { MenuProps } from 'antd';
+import { DefaultTFuncReturn } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { BsFillClipboardCheckFill, BsUiRadiosGrid } from 'react-icons/bs';
@@ -6,10 +7,17 @@ import { ImFolderOpen } from 'react-icons/im';
 import { MdOutlineNotificationImportant, MdToday } from 'react-icons/md';
 import { TbNotesOff } from 'react-icons/tb';
 
+type TRoute = {
+  key: string;
+  label: string;
+  icon: JSX.Element;
+  children?: any[];
+};
+
 export const getRoutes = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = useTranslation();
-  const routes: MenuProps['items'] = [
+  const routes: TRoute[] = [
     {
       key: '/',
       label: t('all'),

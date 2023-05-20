@@ -8,6 +8,7 @@ const mode = Cookies.get('mode');
 
 const initialState: ICustomType = {
   mode: mode === 'dark' ? 'dark' : 'light',
+  menuLabel: '',
   drawerShowRoute: true,
   drawerShowInfo: true,
 };
@@ -28,6 +29,9 @@ const customSlice = createSlice({
     },
     toggleDrawerInfo(state, { payload }: PayloadAction<boolean>) {
       state.drawerShowInfo = payload;
+    },
+    setLabel(state, { payload }: PayloadAction<string>) {
+      state.menuLabel = payload;
     },
   },
 });

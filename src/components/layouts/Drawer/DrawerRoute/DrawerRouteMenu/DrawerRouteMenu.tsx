@@ -1,16 +1,17 @@
+/* eslint-disable object-curly-newline */
 /* eslint-disable @typescript-eslint/indent */
 import { ConfigProvider, Menu, MenuProps } from 'antd';
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useActions, useAppSelector, useResponsive } from 'src/hooks';
+import { useActions, useAppSelector, useLabel, useResponsive } from 'src/hooks';
 
 import { getRoutes } from '../../../routes';
 
 const DrawerRouteMenu: React.FC = () => {
   const { mode, drawerShowRoute } = useAppSelector((s) => s.custom);
+  const { toggleDrawerRoute } = useActions();
   const { pathname } = useLocation();
   const { isMobile } = useResponsive(992);
-  const { toggleDrawerRoute } = useActions();
   const routes = getRoutes();
   const navigate = useNavigate();
   const onClickRoute: MenuProps['onClick'] = (e) => {
