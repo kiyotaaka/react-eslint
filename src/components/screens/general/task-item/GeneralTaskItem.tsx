@@ -1,23 +1,24 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 import { BsCheckSquareFill } from 'react-icons/bs';
 import { IoMdCalendar } from 'react-icons/io';
 import { MdCancel } from 'react-icons/md';
+import { TTaskItem } from 'src/store/tasks/tasks.types';
 
 import './task-item.scss';
 
-const GeneralTaskItem: React.FC = () => {
+const GeneralTaskItem: React.FC<TTaskItem> = (task) => {
   // eslint-disable-next-line object-curly-newline
-  const { id, completed, date, description, dir, important, title } = {
-    title: 'Task 1',
-    dir: 'Main',
-    description: 'This is the description for this task',
-    date: '2023-04-12',
-    completed: true,
-    important: true,
-    id: 't1',
+  const { completed, date, description, dir, important, title } = task;
+  const child = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+    },
   };
   return (
-    <div className="task-item">
+    <motion.div className="task-item" variants={child}>
       <div className="task-item__content">
         <h4>{title}</h4>
         <p>{description}</p>
@@ -30,7 +31,7 @@ const GeneralTaskItem: React.FC = () => {
         <BsCheckSquareFill />
         <MdCancel />
       </div>
-    </div>
+    </motion.div>
   );
 };
 

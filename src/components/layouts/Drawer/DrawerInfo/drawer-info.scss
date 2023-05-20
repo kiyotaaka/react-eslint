@@ -26,6 +26,9 @@
       &-info {
         color: #94a3b8;
       }
+      &-slider {
+        background-color: #1d293e;
+      }
     }
     .drawer-info__bottom {
       a {
@@ -65,6 +68,7 @@
   &__status {
     display: flex;
     flex-direction: column;
+    gap: 15px;
     &-info {
       display: flex;
       align-items: center;
@@ -72,6 +76,18 @@
       gap: 10px;
       font-size: 16px;
       color: #475569;
+    }
+    &-slider {
+      width: 100%;
+      height: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      background-color: #e2e8f0;
+      div {
+        width: 0%;
+        height: 10px;
+        background-color: #5b21b6;
+      }
     }
   }
   &__bottom {

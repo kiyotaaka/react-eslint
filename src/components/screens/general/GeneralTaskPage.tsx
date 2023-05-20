@@ -1,14 +1,13 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useGetTasksQuery } from 'src/store/index.endpoints';
 
 import { GeneralTaskItem } from './task-item/GeneralTaskItem';
 
 import './general-task-page.scss';
 
 const GeneralTaskPage: React.FC = () => {
-  const { pathname } = useLocation();
-  const [lists, setLists] = React.useState([1, 2, 3, 4, 5]);
+  const { data } = useGetTasksQuery(null);
   const container = {
     hidden: { opacity: 1 },
     visible: {
@@ -19,21 +18,12 @@ const GeneralTaskPage: React.FC = () => {
       },
     },
   };
-  const child = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-    },
-  };
   return (
     <motion.div variants={container} initial="hidden" animate="visible">
       <AnimatePresence>
         <div className="tasks">
-          {lists.map((prev) => (
-            <motion.div variants={child} key={prev}>
-              <GeneralTaskItem />
-            </motion.div>
+          {data?.map((task) => (
+            <GeneralTaskItem key={task.id} {...task} />
           ))}
         </div>
       </AnimatePresence>

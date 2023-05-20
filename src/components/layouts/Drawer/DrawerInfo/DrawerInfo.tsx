@@ -3,11 +3,10 @@ import { Avatar, Drawer } from 'antd';
 import clsx from 'clsx';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { BsMoonStarsFill } from 'react-icons/bs';
 import { FaUserAlt } from 'react-icons/fa';
-import { MdSunny } from 'react-icons/md';
-import { UiButton, UiSlider, UiSwitch } from 'src/components/ui';
 import { useActions, useAppSelector, useResponsive } from 'src/hooks';
+
+import { DrawerInfoSwitch } from './DrawerInfoSwitch/DrawerInfoSwitch';
 
 import './drawer-info.scss';
 
@@ -17,16 +16,11 @@ const DrawerInfo: React.FC = () => {
   const { mode, drawerShowInfo } = useAppSelector((s) => s.custom);
 
   const { isMobile } = useResponsive(992);
-  const { toggleDrawerInfo, toggleColorMode } = useActions();
+  const { toggleDrawerInfo } = useActions();
   const { t } = useTranslation();
 
   const onCloseDrawer = () => {
     toggleDrawerInfo(!drawerShowInfo);
-  };
-
-  const onChangeMode = (checked: boolean) => {
-    if (checked) toggleColorMode('dark');
-    else toggleColorMode('light');
   };
 
   React.useEffect(() => {
@@ -52,19 +46,16 @@ const DrawerInfo: React.FC = () => {
           </div>
           <div className="drawer-info__mode">
             <h3>{t('darkmode')}</h3>
-            <UiSwitch
-              checked={mode === 'dark'}
-              onChange={onChangeMode}
-              checkedChildren={<BsMoonStarsFill color="#fff" />}
-              unCheckedChildren={<MdSunny color="yellow" />}
-            />
+            <DrawerInfoSwitch />
           </div>
           <div className="drawer-info__status">
             <div className="drawer-info__status-info">
-              <span>All tasks</span>
+              <span>{t('all')}</span>
               <span>2/3</span>
             </div>
-            <UiSlider max={5} tooltip={{ formatter: null }} />
+            <div className="drawer-info__status-slider">
+              <div style={{ width: '40%' }} />
+            </div>
           </div>
         </div>
         <div className="drawer-info__bottom">
