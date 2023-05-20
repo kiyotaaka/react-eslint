@@ -17,5 +17,7 @@ export const RU = {
     newDirectories: 'Новый',
     notFound: 'Извините, страница, которую вы посетили, не существует.',
     back: 'Назад',
+    completedText: 'выполненный',
+    uncompletedText: 'невыполненный',
   },
 };

@@ -17,5 +17,7 @@ export const EN = {
     newDirectories: 'New',
     notFound: 'Sorry, the page you visited does not exist.',
     back: 'Back',
+    completedText: 'completed',
+    uncompletedText: 'uncompleted',
   },
 };

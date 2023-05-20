@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { UiButton } from 'src/components/ui';
 
-import notFound from '../../../assets/not-found.svg';
+import notFound from '../../../assets/404.svg';
 
 import './not-found.scss';
 
