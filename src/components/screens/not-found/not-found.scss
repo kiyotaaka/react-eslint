@@ -5,11 +5,6 @@
   align-items: center;
   img {
     max-width: 500px;
-    pointer-events: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   }
   &__content {
     display: flex;

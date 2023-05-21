@@ -12,7 +12,7 @@ const NotFound: React.FC = () => {
   const { t } = useTranslation();
   return (
     <div className="not-found">
-      <img src={notFound} alt="404" />
+      <img className="none" src={notFound} alt="404" />
       <div className="not-found__content">
         <h2>404</h2>
         <p>{t('notFound')}</p>

@@ -1,4 +1,6 @@
+/* eslint-disable operator-linebreak */
 import React from 'react';
+import { useFilterTasks } from 'src/hooks';
 import { useGetTasksQuery } from 'src/store/index.endpoints';
 
 import { GeneralLoadingTaskItem } from './task-item/GeneralLoadingTaskItem';
@@ -8,6 +10,7 @@ import './general-task-page.scss';
 
 const GeneralTaskPage: React.FC = () => {
   const { data, isLoading } = useGetTasksQuery(null);
+  const { filterData } = useFilterTasks(data);
   if (isLoading) {
     return (
       <div className="tasks">
@@ -19,9 +22,7 @@ const GeneralTaskPage: React.FC = () => {
   }
   return (
     <div className="tasks">
-      {data?.map((task) => (
-        <GeneralTaskItem key={task.id} {...task} />
-      ))}
+      {data && filterData.map((task) => <GeneralTaskItem key={task.id} {...task} />)}
     </div>
   );
 };

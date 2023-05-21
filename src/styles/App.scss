@@ -19,6 +19,13 @@
     --clr-nav: #141e33;
   }
 }
+.none {
+  pointer-events: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
 footer {
   position: sticky;
   left: 0;

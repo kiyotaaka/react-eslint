@@ -17,7 +17,7 @@ const GeneralTaskItem: React.FC<TTaskItem> = (task) => {
   const { mode } = useAppSelector((s) => s.custom);
   return (
     <div className={`task-item ${mode}`}>
-      <div className="task-item__dir">{dir}</div>
+      <div className="task-item__dir none">{dir}</div>
       <div className="task-item__content">
         <h4>{title}</h4>
         <p>{description}</p>
