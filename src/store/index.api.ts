@@ -5,8 +5,6 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: import.meta.env.VITE_API_KEY,
   }),
-  refetchOnFocus: true,
-  refetchOnMountOrArgChange: true,
   tagTypes: ['tasks'],
   endpoints: (build) => ({
     default: build.query({

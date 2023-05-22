@@ -16,6 +16,7 @@ export const RU = {
     mainDirectories: 'Главный',
     newDirectories: 'Новый',
     notFound: 'Извините, страница, которую вы посетили, не существует.',
+    notTask: 'У вас нет задачи',
     back: 'Назад',
     completedText: 'выполненный',
     uncompletedText: 'невыполненный',

@@ -16,6 +16,7 @@ export const EN = {
     mainDirectories: 'Main',
     newDirectories: 'New',
     notFound: 'Sorry, the page you visited does not exist.',
+    notTask: 'You dont have a task',
     back: 'Back',
     completedText: 'completed',
     uncompletedText: 'uncompleted',
