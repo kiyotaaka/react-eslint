@@ -20,5 +20,6 @@ export const RU = {
     back: 'Назад',
     completedText: 'выполненный',
     uncompletedText: 'невыполненный',
+    tasks: 'задача',
   },
 };

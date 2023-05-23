@@ -20,5 +20,6 @@ export const EN = {
     back: 'Back',
     completedText: 'completed',
     uncompletedText: 'uncompleted',
+    tasks: 'tasks',
   },
 };
