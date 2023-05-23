@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { UiButton } from 'src/components/ui';
-import { useActions, useAppSelector, useResponsive } from 'src/hooks';
+import { useActions, useResponsive, useSelectors } from 'src/hooks';
 
 import { DrawerRouteMenu } from './DrawerRouteMenu/DrawerRouteMenu';
 
@@ -13,9 +13,9 @@ import './drawer-route.scss';
 const DrawerRoute: React.FC = () => {
   const [isDrawer, setIsDrawer] = React.useState(false);
 
-  const { mode, drawerShowRoute } = useAppSelector((s) => s.custom);
+  const { mode, drawerShowRoute } = useSelectors();
 
-  const { isMobile } = useResponsive(992);
+  const { isMobile } = useResponsive(1200);
   const { toggleDrawerRoute } = useActions();
   const { t } = useTranslation();
 
@@ -34,7 +34,7 @@ const DrawerRoute: React.FC = () => {
       width={256}
       onClose={onCloseDrawer}
       closable={false}
-      zIndex={200}
+      zIndex={240}
       open={isDrawer}
       mask={isMobile}
     >

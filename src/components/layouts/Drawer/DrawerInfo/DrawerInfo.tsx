@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaUserAlt } from 'react-icons/fa';
-import { useActions, useAppSelector, useResponsive } from 'src/hooks';
+import { useActions, useResponsive, useSelectors } from 'src/hooks';
 
 import { DrawerInfoSwitch } from './DrawerInfoSwitch/DrawerInfoSwitch';
 
@@ -13,9 +13,9 @@ import './drawer-info.scss';
 const DrawerInfo: React.FC = () => {
   const [isDrawer, setIsDrawer] = React.useState(false);
 
-  const { mode, drawerShowInfo } = useAppSelector((s) => s.custom);
+  const { mode, drawerShowInfo } = useSelectors();
 
-  const { isMobile } = useResponsive(992);
+  const { isMobile } = useResponsive(1200);
   const { toggleDrawerInfo } = useActions();
   const { t } = useTranslation();
 

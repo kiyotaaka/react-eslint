@@ -7,13 +7,13 @@ import { BsFillBellFill } from 'react-icons/bs';
 import { FaUserAlt } from 'react-icons/fa';
 import { ImSearch } from 'react-icons/im';
 import { UiInput, UiSelect } from 'src/components/ui';
-import { useActions, useAppSelector, useResponsive } from 'src/hooks';
+import { useActions, useResponsive, useSelectors } from 'src/hooks';
 import { todayDate } from 'src/utils/date';
 
 import './header.scss';
 
 const Header: React.FC = () => {
-  const { mode, drawerShowRoute, drawerShowInfo } = useAppSelector((state) => state.custom);
+  const { mode, drawerShowRoute, drawerShowInfo } = useSelectors();
   const { toggleDrawerRoute, toggleDrawerInfo } = useActions();
   const { isMobile } = useResponsive(992);
   const { i18n, t } = useTranslation();

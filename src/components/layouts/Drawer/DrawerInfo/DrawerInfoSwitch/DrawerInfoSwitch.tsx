@@ -2,10 +2,10 @@ import React from 'react';
 import { BsMoonStarsFill } from 'react-icons/bs';
 import { MdSunny } from 'react-icons/md';
 import { UiSwitch } from 'src/components/ui';
-import { useActions, useAppSelector } from 'src/hooks';
+import { useActions, useSelectors } from 'src/hooks';
 
 const DrawerInfoSwitch: React.FC = () => {
-  const { mode } = useAppSelector((s) => s.custom);
+  const { mode } = useSelectors();
   const { toggleColorMode } = useActions();
   const onChangeMode = (checked: boolean) => {
     if (checked) toggleColorMode('dark');

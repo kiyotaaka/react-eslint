@@ -1,17 +1,18 @@
-/* eslint-disable object-curly-newline */
-/* eslint-disable @typescript-eslint/indent */
 import { ConfigProvider, Menu, MenuProps } from 'antd';
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useActions, useAppSelector, useLabel, useResponsive } from 'src/hooks';
+import { useActions, useResponsive, useSelectors } from 'src/hooks';
 
 import { getRoutes } from '../../../routes';
 
+import { drawerMode } from './drawerMode';
+
 const DrawerRouteMenu: React.FC = () => {
-  const { mode, drawerShowRoute } = useAppSelector((s) => s.custom);
+  const { mode, drawerShowRoute } = useSelectors();
   const { toggleDrawerRoute } = useActions();
   const { pathname } = useLocation();
-  const { isMobile } = useResponsive(992);
+  const { isMobile } = useResponsive(1200);
+  const modeDrawer = drawerMode(mode);
   const routes = getRoutes();
   const navigate = useNavigate();
   const onClickRoute: MenuProps['onClick'] = (e) => {
@@ -21,24 +22,7 @@ const DrawerRouteMenu: React.FC = () => {
     }
   };
   return (
-    <ConfigProvider
-      theme={{
-        token:
-          mode === 'dark'
-            ? {
-                colorBgBase: '#141E33',
-                colorTextBase: '#8497AC',
-                controlItemBgActive: '#1A253A',
-                colorPrimary: '#E2E8F0',
-              }
-            : {
-                colorBgBase: '#F1F5F9',
-                colorTextBase: '#477880',
-                controlItemBgActive: '#EDE9FE',
-                colorPrimary: '#F43F5E',
-              },
-      }}
-    >
+    <ConfigProvider theme={{ token: modeDrawer }}>
       <Menu mode="inline" selectedKeys={[pathname]} onClick={onClickRoute} items={routes} />
     </ConfigProvider>
   );

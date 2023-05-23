@@ -9,7 +9,7 @@ const UiFloatButton: React.FC<FloatButtonProps> = (_props) => (
       },
     }}
   >
-    <FloatButton {..._props} type="primary" shape="circle" />
+    <FloatButton {..._props} type="primary" shape="circle" style={{ zIndex: 200 }} />
   </ConfigProvider>
 );
 

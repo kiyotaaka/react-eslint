@@ -3,10 +3,10 @@ import { useDispatch } from 'react-redux';
 
 import { bindActionCreators } from '@reduxjs/toolkit';
 
-import { actions as themes } from '../store/custom/custom.slice';
+import { actions as customs } from '../store/custom/custom.slice';
 
 const rootActions = {
-  ...themes,
+  ...customs,
 };
 
 export const useActions = () => {

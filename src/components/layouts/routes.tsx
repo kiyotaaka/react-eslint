@@ -1,5 +1,5 @@
-import { MenuProps } from 'antd';
-import { DefaultTFuncReturn } from 'i18next';
+/* eslint-disable react-hooks/rules-of-hooks */
+import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { BsFillClipboardCheckFill, BsUiRadiosGrid } from 'react-icons/bs';
@@ -11,11 +11,9 @@ type TRoute = {
   key: string;
   label: string;
   icon: JSX.Element;
-  children?: any[];
 };
 
 export const getRoutes = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { t } = useTranslation();
   const routes: TRoute[] = [
     {
@@ -43,22 +41,22 @@ export const getRoutes = () => {
       label: t('uncompleted'),
       icon: <TbNotesOff />,
     },
-    {
-      key: '/directories',
-      label: t('directories'),
-      icon: <ImFolderOpen />,
-      children: [
-        { label: t('mainDirectories'), key: '/directories/main' },
-        {
-          label: t('newDirectories'),
-          key: '/directories/new',
-          icon: <AiOutlinePlus />,
-          style: {
-            border: '1px dashed',
-          },
-        },
-      ],
-    },
+    // {
+    //   key: '/directories',
+    //   label: t('directories'),
+    //   icon: <ImFolderOpen />,
+    //   children: [
+    //     { label: t('mainDirectories'), key: '/directories/main' },
+    //     {
+    //       label: t('newDirectories'),
+    //       key: '/directories/new',
+    //       icon: <AiOutlinePlus />,
+    //       style: {
+    //         border: '1px dashed',
+    //       },
+    //     },
+    //   ],
+    // },
   ];
   return routes;
 };

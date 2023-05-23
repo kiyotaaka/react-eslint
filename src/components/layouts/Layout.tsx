@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { IoMdAdd } from 'react-icons/io';
 import { Outlet, useLocation } from 'react-router-dom';
 // eslint-disable-next-line object-curly-newline
-import { useActions, useAppSelector, useLabel, useResponsive } from 'src/hooks';
+import { useActions, useLabel, useResponsive, useSelectors } from 'src/hooks';
 
 import { Head } from '../shared';
 import { UiFloatButton } from '../ui';
@@ -16,7 +16,7 @@ import { DrawerInfo, DrawerRoute } from './Drawer';
 import './Layout.scss';
 
 const Layout: React.FC = () => {
-  const { drawerShowRoute, drawerShowInfo } = useAppSelector((state) => state.custom);
+  const { drawerShowRoute, drawerShowInfo } = useSelectors();
   const { pathname } = useLocation();
   const { setLabel } = useActions();
   const label = useLabel(pathname);
