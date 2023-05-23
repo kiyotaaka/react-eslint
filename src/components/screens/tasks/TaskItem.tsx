@@ -1,7 +1,8 @@
 /* eslint-disable no-nested-ternary */
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { AiFillCheckCircle } from 'react-icons/ai';
+import { AiFillCheckCircle, AiFillDelete, AiFillStar } from 'react-icons/ai';
+import { HiEllipsisVertical } from 'react-icons/hi2';
 import { IoMdCalendar } from 'react-icons/io';
 import { MdCancel } from 'react-icons/md';
 import { useResponsive, useSelectors } from 'src/hooks';
@@ -9,7 +10,7 @@ import { TTaskItem } from 'src/store/tasks/tasks.types';
 
 const TaskItem: React.FC<TTaskItem> = (task) => {
   // eslint-disable-next-line object-curly-newline
-  const { completed, date, description, dir, title } = task;
+  const { completed, date, description, dir, title, important } = task;
   const { t } = useTranslation();
   const { isMobile } = useResponsive(770);
   const { mode } = useSelectors();
@@ -37,6 +38,11 @@ const TaskItem: React.FC<TTaskItem> = (task) => {
           ) : (
             <span className="task-item__status-check-ut">{t('uncompletedText')}</span>
           )}
+        </span>
+        <span className="task-item__status-edit">
+          <AiFillStar className={`task-item__status-edit-icon ${important && 'active'}`} />
+          <AiFillDelete className="task-item__status-edit-icon" />
+          <HiEllipsisVertical className="task-item__status-edit-icon" />
         </span>
       </div>
     </div>

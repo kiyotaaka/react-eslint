@@ -7,6 +7,7 @@ export const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl,
   }),
+  refetchOnFocus: true,
   tagTypes: ['tasks'],
   endpoints: (build) => ({
     default: build.query({

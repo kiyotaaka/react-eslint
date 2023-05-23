@@ -5,6 +5,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaUserAlt } from 'react-icons/fa';
 import { useActions, useResponsive, useSelectors } from 'src/hooks';
+import { useGetTasksQuery } from 'src/store/index.endpoints';
 
 import { DrawerInfoSwitch } from './DrawerInfoSwitch/DrawerInfoSwitch';
 
@@ -12,6 +13,13 @@ import './drawer-info.scss';
 
 const DrawerInfo: React.FC = () => {
   const [isDrawer, setIsDrawer] = React.useState(false);
+
+  const { data } = useGetTasksQuery(null);
+
+  const allTasks = data ? data.length : 1;
+  const completedTask = data ? data.filter((el) => el.completed).length : 1;
+
+  const percentageAllTasks = (completedTask * 100) / allTasks;
 
   const { mode, drawerShowInfo } = useSelectors();
   const { toggleDrawerInfo } = useActions();
@@ -51,10 +59,10 @@ const DrawerInfo: React.FC = () => {
           <div className="drawer-info__status">
             <div className="drawer-info__status-info">
               <span>{t('all')}</span>
-              <span>2/3</span>
+              <span>{`${completedTask}/${allTasks}`}</span>
             </div>
             <div className="drawer-info__status-slider">
-              <div style={{ width: '40%' }} />
+              <div style={{ width: `${percentageAllTasks}%` }} />
             </div>
           </div>
         </div>

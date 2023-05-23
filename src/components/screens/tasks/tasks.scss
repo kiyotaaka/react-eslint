@@ -72,12 +72,13 @@
       font-size: 14px;
     }
     &-check {
-      font-size: 25px !important;
       cursor: pointer;
       &-ci {
+        font-size: 25px;
         color: #a7f3d0;
       }
       &-ui {
+        font-size: 25px;
         color: #fde68a;
       }
       &-ct {
@@ -87,6 +88,19 @@
       &-ut {
         background-color: #fde68a;
         color: #92400e;
+      }
+    }
+    &-edit {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      &-icon {
+        font-size: 25px !important;
+        color: var(--clr-text);
+        cursor: pointer;
+        &.active {
+          color: #f43f5e;
+        }
       }
     }
   }

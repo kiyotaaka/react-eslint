@@ -8,7 +8,7 @@ import { FaUserAlt } from 'react-icons/fa';
 import { ImSearch } from 'react-icons/im';
 import { UiInput, UiSelect } from 'src/components/ui';
 import { useActions, useResponsive, useSelectors } from 'src/hooks';
-import { todayDate } from 'src/utils/date';
+import { todayDate } from 'src/utils';
 
 import './header.scss';
 
