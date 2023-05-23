@@ -1,10 +1,10 @@
-import { GeneralTaskPage, NotFound } from '../screens';
+import { NotFound, Tasks } from '../screens';
 
 export const routes = [
-  { path: '/', element: <GeneralTaskPage /> },
-  { path: '/today', element: <GeneralTaskPage /> },
-  { path: '/important', element: <GeneralTaskPage /> },
-  { path: '/completed', element: <GeneralTaskPage /> },
-  { path: '/uncompleted', element: <GeneralTaskPage /> },
+  { path: '/', element: <Tasks /> },
+  { path: '/today', element: <Tasks /> },
+  { path: '/important', element: <Tasks /> },
+  { path: '/completed', element: <Tasks /> },
+  { path: '/uncompleted', element: <Tasks /> },
   { path: '*', element: <NotFound /> },
 ];

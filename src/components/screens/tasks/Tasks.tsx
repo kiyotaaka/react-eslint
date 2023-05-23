@@ -3,14 +3,14 @@ import React from 'react';
 import { useFilterTasks } from 'src/hooks';
 import { useGetTasksQuery } from 'src/store/index.endpoints';
 
-import { NotTask } from '../not-task';
+import { NotTask } from '../notTask/NotTask';
 
-import { GeneralLoadingTaskItem } from './task-item/GeneralLoadingTaskItem';
-import { GeneralTaskItem } from './task-item/GeneralTaskItem';
+import { TaskItem } from './TaskItem';
+import { TaskLoadingItem } from './TaskLoadingItem';
 
-import './general-task-page.scss';
+import './tasks.scss';
 
-const GeneralTaskPage: React.FC = React.memo(() => {
+const Tasks: React.FC = React.memo(() => {
   const [taskShow, setTaskShow] = React.useState(false);
 
   const { data, isLoading, isSuccess } = useGetTasksQuery(null);
@@ -27,10 +27,10 @@ const GeneralTaskPage: React.FC = React.memo(() => {
   return (
     <div className="tasks">
       {isLoading
-        ? [...Array(5)].map((_, i) => <GeneralLoadingTaskItem key={i} />)
-        : filterData?.map((task) => <GeneralTaskItem key={task.id} {...task} />)}
+        ? [...Array(5)].map((_, i) => <TaskLoadingItem key={i} />)
+        : filterData?.map((task) => <TaskItem key={task.id} {...task} />)}
     </div>
   );
 });
 
-export { GeneralTaskPage };
+export { Tasks };

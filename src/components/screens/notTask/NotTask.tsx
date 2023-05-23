@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import notTask from '../../../assets/images/none.svg';
 
-import './not-task.scss';
+import './notTask.scss';
 
 const NotTask: React.FC = () => {
   const { t } = useTranslation();

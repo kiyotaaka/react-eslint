@@ -1,3 +1,3 @@
-export * from './general/GeneralTaskPage';
-export * from './not-found';
-export * from './not-task';
+export * from './notFound/NotFound';
+export * from './notTask/NotTask';
+export * from './tasks/Tasks';

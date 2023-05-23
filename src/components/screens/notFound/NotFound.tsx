@@ -5,7 +5,7 @@ import { UiButton } from 'src/components/ui';
 
 import notFound from '../../../assets/images/404.svg';
 
-import './not-found.scss';
+import './notFound.scss';
 
 const NotFound: React.FC = () => {
   const navigate = useNavigate();

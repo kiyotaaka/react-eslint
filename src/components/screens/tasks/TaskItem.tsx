@@ -7,9 +7,7 @@ import { MdCancel } from 'react-icons/md';
 import { useResponsive, useSelectors } from 'src/hooks';
 import { TTaskItem } from 'src/store/tasks/tasks.types';
 
-import './task-item.scss';
-
-const GeneralTaskItem: React.FC<TTaskItem> = (task) => {
+const TaskItem: React.FC<TTaskItem> = (task) => {
   // eslint-disable-next-line object-curly-newline
   const { completed, date, description, dir, title } = task;
   const { t } = useTranslation();
@@ -45,4 +43,4 @@ const GeneralTaskItem: React.FC<TTaskItem> = (task) => {
   );
 };
 
-export { GeneralTaskItem };
+export { TaskItem };

@@ -6,12 +6,12 @@ import { Outlet, useLocation } from 'react-router-dom';
 // eslint-disable-next-line object-curly-newline
 import { useActions, useLabel, useResponsive, useSelectors } from 'src/hooks';
 
-import { Head } from '../shared';
 import { UiFloatButton } from '../ui';
 
 import { Footer } from './Footer/Footer';
 import { Header } from './Header/Header';
 import { DrawerInfo, DrawerRoute } from './Drawer';
+import { Head } from './Head';
 
 import './Layout.scss';
 
