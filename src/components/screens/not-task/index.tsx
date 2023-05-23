@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-import notTask from '../../../assets/none.svg';
+import notTask from '../../../assets/images/none.svg';
 
 import './not-task.scss';
 

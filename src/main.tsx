@@ -8,7 +8,7 @@ import { App } from './App';
 import { store } from './store';
 
 import 'antd/dist/reset.css';
-import './styles/base/_reset.scss';
+import './assets/styles/base/_reset.scss';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <Router>

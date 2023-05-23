@@ -17,7 +17,7 @@
         color: #e2e8f0;
       }
     }
-    .drawer-info__logo {
+    .drawer-info__user {
       h3 {
         color: #94a3b8;
       }
@@ -42,7 +42,7 @@
     flex-direction: column;
     gap: 30px;
   }
-  &__logo {
+  &__user {
     display: flex;
     align-items: center;
     justify-content: center;

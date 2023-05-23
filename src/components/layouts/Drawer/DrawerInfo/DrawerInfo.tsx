@@ -14,9 +14,9 @@ const DrawerInfo: React.FC = () => {
   const [isDrawer, setIsDrawer] = React.useState(false);
 
   const { mode, drawerShowInfo } = useSelectors();
-
-  const { isMobile } = useResponsive(1200);
   const { toggleDrawerInfo } = useActions();
+  const { isMobile } = useResponsive(1200);
+
   const { t } = useTranslation();
 
   const onCloseDrawer = () => {
@@ -40,7 +40,7 @@ const DrawerInfo: React.FC = () => {
     >
       <div className={clsx('drawer-info', `drawer-info ${mode}`)}>
         <div className="drawer-info__top">
-          <div className="drawer-info__logo">
+          <div className="drawer-info__user">
             <h3>{t('userTitle')}</h3>
             <Avatar size={35} icon={<FaUserAlt />} />
           </div>
