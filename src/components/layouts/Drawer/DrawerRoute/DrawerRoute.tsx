@@ -40,7 +40,7 @@ const DrawerRoute: React.FC = () => {
     >
       <div className={clsx('drawer-route', `drawer-route ${mode}`)}>
         <div className="drawer-route__submenu">
-          <h2>{t('title')} 🔥</h2>
+          <h2>{t('title')}</h2>
           <UiButton>{t('addText')}</UiButton>
         </div>
         <div className="drawer-route__menu">

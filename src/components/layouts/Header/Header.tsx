@@ -7,23 +7,38 @@ import { BsFillBellFill } from 'react-icons/bs';
 import { FaUserAlt } from 'react-icons/fa';
 import { ImSearch } from 'react-icons/im';
 import { UiInput, UiSelect } from 'src/components/ui';
-import { useActions, useResponsive, useSelectors } from 'src/hooks';
+// eslint-disable-next-line object-curly-newline
+import { useActions, useDebounce, useResponsive, useSelectors } from 'src/hooks';
 import { todayDate } from 'src/utils';
 
 import './header.scss';
 
 const Header: React.FC = () => {
-  const { mode, drawerShowRoute, drawerShowInfo } = useSelectors();
-  const { toggleDrawerRoute, toggleDrawerInfo } = useActions();
-  const { isMobile } = useResponsive(992);
+  const [inputValue, setInputValue] = React.useState('');
   const { i18n, t } = useTranslation();
 
+  const { mode, drawerShowRoute, drawerShowInfo } = useSelectors();
+  const { toggleDrawerRoute, toggleDrawerInfo, setSearchValue } = useActions();
+  const { isMobile } = useResponsive(992);
+
+  const debounceValue = useDebounce(inputValue, 200);
+
   const lang = Cookies.get('lang');
+
+  const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target;
+    setInputValue(value);
+  };
 
   const handleChangeLang = (value: string) => {
     i18n.changeLanguage(value);
     Cookies.set('lang', value);
   };
+
+  React.useEffect(() => {
+    setSearchValue(debounceValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debounceValue]);
 
   return (
     <header className="header">
@@ -37,6 +52,8 @@ const Header: React.FC = () => {
           />
         ) : (
           <UiInput
+            value={inputValue}
+            onChange={handleChangeInput}
             placeholder={`${t('placeholderSearch')}`}
             style={{ width: '300px' }}
             suffix={<ImSearch color="#94A3B8" size={18} />}

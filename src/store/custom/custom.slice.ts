@@ -9,6 +9,7 @@ const mode = Cookies.get('mode');
 const initialState: ICustomType = {
   mode: mode === 'dark' ? 'dark' : 'light',
   menuLabel: '',
+  searchValue: '',
   drawerShowRoute: true,
   drawerShowInfo: true,
 };
@@ -32,6 +33,9 @@ const customSlice = createSlice({
     },
     setLabel(state, { payload }: PayloadAction<string>) {
       state.menuLabel = payload;
+    },
+    setSearchValue(state, { payload }: PayloadAction<string>) {
+      state.searchValue = payload;
     },
   },
 });

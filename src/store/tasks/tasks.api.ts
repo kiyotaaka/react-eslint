@@ -4,9 +4,9 @@ import { TTaskItem } from './tasks.types';
 
 export const tasksApi = api.injectEndpoints({
   endpoints: (builder) => ({
-    getTasks: builder.query<TTaskItem[], null>({
-      query: () => ({
-        url: '/tasks',
+    getTasks: builder.query<TTaskItem[], string | null>({
+      query: (value) => ({
+        url: `/tasks?${value ? `search=${value}` : ''}`,
       }),
     }),
   }),

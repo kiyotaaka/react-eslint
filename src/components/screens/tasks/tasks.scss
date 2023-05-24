@@ -1,12 +1,15 @@
 .tasks {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
+  &.task {
+    grid-template-columns: repeat(3, 1fr);
+  }
   @media (max-width: 770px) {
     grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 500px) {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 1fr) !important;
   }
 }
 .task-item {
@@ -27,7 +30,7 @@
   }
   &__dir {
     position: absolute;
-    top: -10%;
+    top: -5%;
     right: 10px;
     padding: 5px 10px;
     border-radius: 10px;
@@ -43,6 +46,10 @@
     padding-bottom: 10px;
     border-bottom: 1px dashed var(--clr-text);
     h4 {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
       font-weight: 600;
       color: var(--clr-text-v2);
     }

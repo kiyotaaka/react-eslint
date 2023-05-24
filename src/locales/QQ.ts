@@ -1,6 +1,6 @@
 export const QQ = {
   translation: {
-    title: 'TO-DO LIST',
+    title: 'WAZIYPALAR-DIZIMI',
     userTitle: 'Sálem Paydalanıwshı!',
     addText: 'Jańa wazıypa qosıw',
     author: '❤️ avtor menen jaratılǵan',
