@@ -11,7 +11,7 @@ const HeaderSearch: React.FC = () => {
   const { setSearchValue } = useActions();
   const debounceValue = useDebounce(inputValue, 200);
 
-  const { isMobile } = useResponsive(992);
+  const { isMobile } = useResponsive(1200);
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;

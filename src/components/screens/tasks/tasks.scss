@@ -3,7 +3,7 @@
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   &.task {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   @media (max-width: 770px) {
     grid-template-columns: repeat(2, 1fr);

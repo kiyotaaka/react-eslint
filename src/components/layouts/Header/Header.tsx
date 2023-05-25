@@ -14,7 +14,7 @@ import './header.scss';
 const Header: React.FC = () => {
   const { t } = useTranslation();
 
-  const { isMobile } = useResponsive(992);
+  const { isMobile } = useResponsive(1200);
 
   return (
     <header className="header">
