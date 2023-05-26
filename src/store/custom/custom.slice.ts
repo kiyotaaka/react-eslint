@@ -12,6 +12,7 @@ const initialState: ICustomType = {
   searchValue: '',
   drawerShowRoute: true,
   drawerShowInfo: true,
+  modalShow: false,
 };
 
 const customSlice = createSlice({
@@ -30,6 +31,9 @@ const customSlice = createSlice({
     },
     toggleDrawerInfo(state, { payload }: PayloadAction<boolean>) {
       state.drawerShowInfo = payload;
+    },
+    toggleModal(state, { payload }: PayloadAction<boolean>) {
+      state.modalShow = payload;
     },
     setLabel(state, { payload }: PayloadAction<string>) {
       state.menuLabel = payload;

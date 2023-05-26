@@ -4,4 +4,5 @@ export interface ICustomType {
   searchValue: string;
   drawerShowRoute: boolean;
   drawerShowInfo: boolean;
+  modalShow: boolean;
 }

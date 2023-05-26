@@ -3,6 +3,7 @@ export const QQ = {
     title: 'WAZIYPALAR-DIZIMI',
     userTitle: 'Sálem Paydalanıwshı!',
     addText: 'Jańa wazıypa qosıw',
+    addTask: 'Wazıypa qosıw',
     author: '❤️ avtor menen jaratılǵan',
     authorName: 'Atabek Otepbergenov joybarı',
     placeholderSearch: 'Wazıypanı izlew',

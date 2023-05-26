@@ -16,7 +16,7 @@ const DrawerRoute: React.FC = () => {
   const { mode, drawerShowRoute } = useSelectors();
 
   const { isMobile } = useResponsive(1200);
-  const { toggleDrawerRoute } = useActions();
+  const { toggleDrawerRoute, toggleModal } = useActions();
   const { t } = useTranslation();
 
   const onCloseDrawer = () => {
@@ -41,7 +41,7 @@ const DrawerRoute: React.FC = () => {
       <div className={clsx('drawer-route', `drawer-route ${mode}`)}>
         <div className="drawer-route__submenu">
           <h2>{t('title')}</h2>
-          <UiButton>{t('addText')}</UiButton>
+          <UiButton onClick={() => toggleModal(true)}>{t('addText')}</UiButton>
         </div>
         <div className="drawer-route__menu">
           <DrawerRouteMenu />

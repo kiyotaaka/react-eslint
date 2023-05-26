@@ -3,6 +3,7 @@ export const EN = {
     title: 'TO-DO LIST',
     userTitle: 'Hi, User!',
     addText: 'Add new task',
+    addTask: 'Add a task',
     author: 'Made with ❤️ by',
     authorName: 'Projected by Atabek Otepbergenov',
     placeholderSearch: 'Search task',

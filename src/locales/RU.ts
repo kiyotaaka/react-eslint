@@ -3,6 +3,7 @@ export const RU = {
     title: 'СПИСОК-ДЕЛ',
     userTitle: 'Привет, Пользователь!',
     addText: 'Добавить новую задачу',
+    addTask: 'Добавить задачу',
     author: 'Сделано с ❤️ автором',
     authorName: 'Проект Атабек Отепбергенов',
     placeholderSearch: 'Искать задачу',

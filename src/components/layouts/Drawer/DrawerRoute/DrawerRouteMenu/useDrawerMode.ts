@@ -1,4 +1,4 @@
-export const drawerMode = (mode: 'dark' | 'light') => {
+export const useDrawerMode = (mode: 'dark' | 'light') => {
   const dark = {
     colorBgBase: '#141E33',
     colorTextBase: '#8497AC',
@@ -11,8 +11,6 @@ export const drawerMode = (mode: 'dark' | 'light') => {
     controlItemBgActive: '#EDE9FE',
     colorPrimary: '#F43F5E',
   };
-  if (mode === 'dark') {
-    return dark;
-  }
+  if (mode === 'dark') return dark;
   return light;
 };

@@ -5,16 +5,18 @@ import { useActions, useResponsive, useSelectors } from 'src/hooks';
 
 import { getRoutes } from '../../../routes';
 
-import { drawerMode } from './drawerMode';
+import { useDrawerMode } from './useDrawerMode';
 
 const DrawerRouteMenu: React.FC = () => {
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
   const { mode, drawerShowRoute } = useSelectors();
   const { toggleDrawerRoute } = useActions();
-  const { pathname } = useLocation();
   const { isMobile } = useResponsive(1200);
-  const modeDrawer = drawerMode(mode);
+  const theme = useDrawerMode(mode);
   const routes = getRoutes();
-  const navigate = useNavigate();
+
   const onClickRoute: MenuProps['onClick'] = (e) => {
     navigate(e.key);
     if (isMobile) {
@@ -22,7 +24,7 @@ const DrawerRouteMenu: React.FC = () => {
     }
   };
   return (
-    <ConfigProvider theme={{ token: modeDrawer }}>
+    <ConfigProvider theme={{ token: theme }}>
       <Menu mode="inline" selectedKeys={[pathname]} onClick={onClickRoute} items={routes} />
     </ConfigProvider>
   );
