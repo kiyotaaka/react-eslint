@@ -22,5 +22,16 @@ export const RU = {
     completedText: 'выполненный',
     uncompletedText: 'невыполненный',
     tasks: 'задача',
+    // Form
+    formTitle: 'Заголовок',
+    formPlaceholderEg: 'например, исследование для теста',
+    formDate: 'Дата',
+    formDescription: 'Описание',
+    formDirectory: 'Каталог',
+    selectDirectory: 'Выберите каталог',
+    selectDate: 'Выберите дату',
+    requiredMessage: 'Пожалуйста, заполните',
+    markImportant: 'Отметить как важное',
+    markCompeleted: 'Отметить как выполненное',
   },
 };

@@ -22,5 +22,16 @@ export const EN = {
     completedText: 'completed',
     uncompletedText: 'uncompleted',
     tasks: 'tasks',
+    // Form
+    formTitle: 'Title',
+    formPlaceholderEg: 'e.g, study for the test',
+    formDate: 'Date',
+    formDescription: 'Description',
+    formDirectory: 'Directory',
+    selectDirectory: 'Select directory',
+    selectDate: 'Select date',
+    requiredMessage: 'Please fill in the',
+    markImportant: 'Mark as important',
+    markCompeleted: 'Mark as completed',
   },
 };

@@ -8,6 +8,15 @@ export const tasksApi = api.injectEndpoints({
       query: (value) => ({
         url: `/tasks?${value ? `search=${value}` : ''}`,
       }),
+      providesTags: ['tasks'],
+    }),
+    addTask: builder.mutation<any, TTaskItem>({
+      query: (body) => ({
+        url: '/tasks',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['tasks'],
     }),
   }),
 });

@@ -22,5 +22,16 @@ export const QQ = {
     completedText: 'pıtken',
     uncompletedText: 'tamamlanmagan',
     tasks: 'wazıypa',
+    // Form
+    formTitle: 'Bas bet',
+    formPlaceholderEg: 'Mısalı, test ushın izertlew',
+    formDate: 'Sáne',
+    formDescription: 'Xarakteristika',
+    formDirectory: 'Katalog',
+    selectDirectory: 'Katalogdı saylań',
+    selectDate: 'Sáne saylań ',
+    requiredMessage: 'Ótinish, toldırıń',
+    markImportant: 'Zárúrli dep belgileń',
+    markCompeleted: 'Atqarıldı dep belgileń',
   },
 };

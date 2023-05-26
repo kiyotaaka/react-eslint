@@ -1,3 +1,3 @@
 import { tasksApi } from './tasks/tasks.api';
 
-export const { useGetTasksQuery } = tasksApi;
+export const { useGetTasksQuery, useAddTaskMutation } = tasksApi;
