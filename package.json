@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
     "@types/js-cookie": "^3.0.3",
+    "@vercel/analytics": "^1.0.1",
     "antd": "^5.4.7",
     "clsx": "^1.2.1",
     "hamburger-react": "^2.5.0",
