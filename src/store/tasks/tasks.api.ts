@@ -18,5 +18,28 @@ export const tasksApi = api.injectEndpoints({
       }),
       invalidatesTags: ['tasks'],
     }),
+    editTask: builder.mutation<any, TTaskItem>({
+      query: (body) => ({
+        url: `/tasks/${body.id}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['tasks'],
+    }),
+    editTaskStatus: builder.mutation<any, TTaskItem>({
+      query: (body) => ({
+        url: `/tasks/${body.id}`,
+        method: 'PUT',
+        body,
+      }),
+      invalidatesTags: ['tasks'],
+    }),
+    deleteTask: builder.mutation<any, string>({
+      query: (id) => ({
+        url: `/tasks/${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['tasks'],
+    }),
   }),
 });

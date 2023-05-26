@@ -5,5 +5,5 @@ export type TTaskItem = {
   date: string;
   completed: boolean;
   important: boolean;
-  id: number;
+  id: string;
 };
