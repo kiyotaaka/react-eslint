@@ -96,9 +96,9 @@ const TaskForm: React.FC = () => {
       centered
     >
       <Form
-        form={form}
         name="task"
         className="task-form"
+        form={form}
         layout="vertical"
         onFinish={onFinish}
         size="large"
