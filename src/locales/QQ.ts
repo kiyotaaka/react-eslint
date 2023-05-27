@@ -4,6 +4,7 @@ export const QQ = {
     userTitle: 'Sálem Paydalanıwshı!',
     addText: 'Jańa wazıypa qosıw',
     addTask: 'Wazıypa qosıw',
+    editTask: 'Wazıypanı ozgertiw',
     author: '❤️ avtor menen jaratılǵan',
     authorName: 'Atabek Otepbergenov joybarı',
     placeholderSearch: 'Wazıypanı izlew',
@@ -33,5 +34,13 @@ export const QQ = {
     requiredMessage: 'Ótinish, toldırıń',
     markImportant: 'Zárúrli dep belgileń',
     markCompeleted: 'Atqarıldı dep belgileń',
+    okText: 'Awa',
+    cancelText: 'Bıykarlaw',
+    deletedDescription: 'Haqıyqattan da bul wazıypanı óshirip taslayjaqsızba?',
+    // Message
+    successDelete: 'Wazıypa óshirildi',
+    successTask: 'Tabıslı qosıldı',
+    successEditTask: 'Tabıslı ózgertirildi',
+    errorTask: 'Qandayda bir nadurıs atqarıldı',
   },
 };

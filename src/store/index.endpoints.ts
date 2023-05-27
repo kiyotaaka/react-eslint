@@ -4,6 +4,7 @@ export const {
   useGetTasksQuery,
   useAddTaskMutation,
   useEditTaskMutation,
-  useEditTaskStatusMutation,
+  useEditTaskCompletedMutation,
+  useEditTaskImportantMutation,
   useDeleteTaskMutation,
 } = tasksApi;

@@ -3,6 +3,6 @@ import { RootState } from 'src/store';
 
 const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 export const useSelectors = () => {
-  const { custom } = useAppSelector((s) => s);
-  return { ...custom };
+  const { tasks, shared } = useAppSelector((s) => s);
+  return { ...tasks, ...shared };
 };

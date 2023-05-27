@@ -1,4 +1,4 @@
-export interface ICustomType {
+export interface ISharedType {
   mode: 'dark' | 'light';
   menuLabel: string;
   searchValue: string;

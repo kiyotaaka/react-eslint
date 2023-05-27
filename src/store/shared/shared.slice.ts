@@ -2,11 +2,11 @@ import Cookies from 'js-cookie';
 
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { ICustomType } from './custom.types';
+import { ISharedType } from './shared.types';
 
 const mode = Cookies.get('mode');
 
-const initialState: ICustomType = {
+const initialState: ISharedType = {
   mode: mode === 'dark' ? 'dark' : 'light',
   menuLabel: '',
   searchValue: '',
@@ -15,8 +15,8 @@ const initialState: ICustomType = {
   modalShow: false,
 };
 
-const customSlice = createSlice({
-  name: 'theme',
+const sharedSlice = createSlice({
+  name: 'shared',
   initialState,
   reducers: {
     toggleColorMode(state, { payload }: PayloadAction<'dark' | 'light'>) {
@@ -43,4 +43,4 @@ const customSlice = createSlice({
     },
   },
 });
-export const { reducer, actions } = customSlice;
+export const { reducer, actions } = sharedSlice;

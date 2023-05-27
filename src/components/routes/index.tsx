@@ -1,4 +1,7 @@
-import { NotFound, Tasks } from '../screens';
+import loadable from '@loadable/component';
+
+const Tasks = loadable(() => import('../screens/tasks/Tasks'));
+const NotFound = loadable(() => import('../screens/notFound/NotFound'));
 
 export const routes = [
   { path: '/', element: <Tasks /> },

@@ -1,10 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-import { reducer } from './custom/custom.slice';
+import { reducer as shared } from './shared/shared.slice';
+import { reducer as tasks } from './tasks/task.slice';
 import { api } from './index.api';
 
-const reducers = combineReducers({ custom: reducer, [api.reducerPath]: api.reducer });
+const reducers = combineReducers({ shared, tasks, [api.reducerPath]: api.reducer });
 
 export const store = configureStore({
   reducer: reducers,

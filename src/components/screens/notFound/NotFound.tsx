@@ -22,4 +22,4 @@ const NotFound: React.FC = () => {
   );
 };
 
-export { NotFound };
+export default NotFound;

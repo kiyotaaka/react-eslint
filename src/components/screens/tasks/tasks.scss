@@ -80,6 +80,10 @@
     }
     &-check {
       cursor: pointer;
+      transition: transform 0.1s linear;
+      &.active {
+        transform: translateX(15px);
+      }
       &-ci {
         font-size: 25px;
         color: #a7f3d0;
@@ -104,9 +108,13 @@
       &-icon {
         font-size: 25px !important;
         color: var(--clr-text);
+        transition: transform 0.3s linear;
         cursor: pointer;
         &.active {
           color: #f43f5e;
+        }
+        &.active-status {
+          transform: scale(1.2);
         }
       }
     }

@@ -5,5 +5,7 @@ export * from './dataPicker/UiDataPicker';
 export * from './input/UiInput';
 export * from './input/UiInputTextArea';
 export * from './modal/UiModal';
+export * from './popconfirm/UiPopconfirm';
 export * from './select/UiSelect';
+export * from './spin/UiSpin';
 export * from './switch/UiSwitch';

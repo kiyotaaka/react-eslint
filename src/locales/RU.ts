@@ -4,6 +4,7 @@ export const RU = {
     userTitle: 'Привет, Пользователь!',
     addText: 'Добавить новую задачу',
     addTask: 'Добавить задачу',
+    editTask: 'Изменить задачу',
     author: 'Сделано с ❤️ автором',
     authorName: 'Проект Атабек Отепбергенов',
     placeholderSearch: 'Искать задачу',
@@ -33,5 +34,13 @@ export const RU = {
     requiredMessage: 'Пожалуйста, заполните',
     markImportant: 'Отметить как важное',
     markCompeleted: 'Отметить как выполненное',
+    okText: 'Да',
+    cancelText: 'Отмена',
+    deletedDescription: 'Вы уверены, что хотите удалить эту задачу?',
+    // Message
+    successDelete: 'Задача удалена',
+    successTask: 'Успешно Добавлён',
+    successEditTask: 'Успешно изменён',
+    errorTask: 'Что-то пошло не так',
   },
 };

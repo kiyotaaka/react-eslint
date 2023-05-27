@@ -7,3 +7,6 @@ export type TTaskItem = {
   important: boolean;
   id: string;
 };
+export interface TTask {
+  task: TTaskItem | null;
+}

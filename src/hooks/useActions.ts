@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux';
 
 import { bindActionCreators } from '@reduxjs/toolkit';
 
-import { actions as customs } from '../store/custom/custom.slice';
+import { actions as shareds } from '../store/shared/shared.slice';
+import { actions as tasks } from '../store/tasks/task.slice';
 
 const rootActions = {
-  ...customs,
+  ...shareds,
+  ...tasks,
 };
 
 export const useActions = () => {

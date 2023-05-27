@@ -1,4 +1,7 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable operator-linebreak */
 import { DatePickerProps, Form, message } from 'antd';
+import dayjs from 'dayjs';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import {
@@ -11,8 +14,9 @@ import {
   UiSelect,
 } from 'src/components/ui';
 import { useActions, useSelectors } from 'src/hooks';
-import { useAddTaskMutation } from 'src/store/index.endpoints';
-import { lowerCase } from 'src/utils';
+import { useAddTaskMutation, useEditTaskMutation } from 'src/store/index.endpoints';
+import { TTaskItem } from 'src/store/tasks/tasks.types';
+import { dateFormat, lowerCase } from 'src/utils';
 
 import './taskForm.scss';
 
@@ -21,10 +25,13 @@ const TaskForm: React.FC = () => {
   const { t } = useTranslation();
   const [form] = Form.useForm();
 
-  const [addTask, { isLoading, isSuccess, isError }] = useAddTaskMutation();
+  const [addTask, { isLoading: addLoading, isSuccess: addSuccess, isError: addError }] =
+    useAddTaskMutation();
+  const [editTask, { isLoading: editLoading, isSuccess: editSuccess, isError: editError }] =
+    useEditTaskMutation();
 
-  const { modalShow } = useSelectors();
-  const { toggleModal } = useActions();
+  const { modalShow, task } = useSelectors();
+  const { toggleModal, setTask } = useActions();
 
   const onChangeDataPicker: DatePickerProps['onChange'] = (_, dateString) => {
     setDateValue(dateString);
@@ -35,30 +42,54 @@ const TaskForm: React.FC = () => {
     form.resetFields();
   };
 
-  const onFinish = async (values: any) => {
-    await addTask({
-      ...values,
-      completed: !!values.completed,
-      important: !!values.important,
-      date: dateValue,
-    });
+  const onFinish = async (values: TTaskItem) => {
+    if (task) {
+      await editTask({ ...values, id: task.id });
+    } else {
+      await addTask({
+        ...values,
+        completed: !!values.completed,
+        important: !!values.important,
+        date: dateValue,
+      });
+    }
   };
   React.useEffect(() => {
-    if (isSuccess) {
-      message.success('Успешно Добавлён');
+    if (addSuccess) {
+      message.success(t('successTask'));
       form.resetFields();
       toggleModal(false);
     }
-    if (isError) {
-      message.error('Что-то пошло не так');
+    if (editSuccess) {
+      message.success(t('successEditTask'));
       form.resetFields();
       toggleModal(false);
     }
-  }, [form, isError, isSuccess, toggleModal]);
+    if (addError || editError) {
+      message.error(t('errorTask'));
+      form.resetFields();
+      toggleModal(false);
+    }
+  }, [addError, addSuccess, editError, editSuccess]);
+
+  React.useEffect(() => {
+    if (task) {
+      form.setFieldsValue({
+        ...task,
+        date: dayjs(task.date, dateFormat),
+      });
+    }
+  }, [form, task]);
+  React.useEffect(() => {
+    if (!modalShow) {
+      form.resetFields();
+      setTask(null);
+    }
+  }, [form, modalShow]);
 
   return (
     <UiModal
-      title={t('addTask')}
+      title={task ? t('editTask') : t('addTask')}
       open={modalShow}
       footer={false}
       onCancel={onModalCancel}
@@ -68,7 +99,6 @@ const TaskForm: React.FC = () => {
         form={form}
         name="task"
         className="task-form"
-        initialValues={{ remember: true }}
         layout="vertical"
         onFinish={onFinish}
         size="large"
@@ -98,6 +128,7 @@ const TaskForm: React.FC = () => {
           <UiDataPicker
             onChange={onChangeDataPicker}
             placeholder={`${t('selectDate')}`}
+            format={dateFormat}
           />
         </Form.Item>
         <Form.Item
@@ -106,9 +137,7 @@ const TaskForm: React.FC = () => {
           rules={[
             {
               required: true,
-              message: `${t('requiredMessage')} ${lowerCase(
-                t('formDescription'),
-              )}!`,
+              message: `${t('requiredMessage')} ${lowerCase(t('formDescription'))}!`,
             },
           ]}
         >
@@ -140,8 +169,8 @@ const TaskForm: React.FC = () => {
         </Form.Item>
 
         <Form.Item>
-          <UiButton loading={isLoading} block htmlType="submit">
-            {t('addTask')}
+          <UiButton loading={task ? editLoading : addLoading} block htmlType="submit">
+            {task ? t('editTask') : t('addTask')}
           </UiButton>
         </Form.Item>
       </Form>

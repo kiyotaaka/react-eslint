@@ -4,6 +4,7 @@ export const EN = {
     userTitle: 'Hi, User!',
     addText: 'Add new task',
     addTask: 'Add a task',
+    editTask: 'Edit task',
     author: 'Made with ❤️ by',
     authorName: 'Projected by Atabek Otepbergenov',
     placeholderSearch: 'Search task',
@@ -33,5 +34,13 @@ export const EN = {
     requiredMessage: 'Please fill in the',
     markImportant: 'Mark as important',
     markCompeleted: 'Mark as completed',
+    okText: 'Ok',
+    cancelText: 'No',
+    deletedDescription: 'Are you sure delete this task?',
+    // Message
+    successDelete: 'Task removed',
+    successTask: 'Successfully Added',
+    successEditTask: 'Successfully modified',
+    errorTask: 'Something went wrong',
   },
 };
