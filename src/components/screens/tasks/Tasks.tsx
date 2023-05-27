@@ -42,4 +42,4 @@ const Tasks: React.FC = React.memo(() => {
   );
 });
 
-export default Tasks;
+export { Tasks };
