@@ -18,11 +18,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     color: var(--clr-text);
     h4 {
       color: var(--clr-text-v2);
       font-weight: 700;
-      @include adaptiv-font(20, 12, 20);
+      @include adaptiv-font(20, 10, 20);
     }
     p {
       @include adaptiv-font(18, 12, 18);
