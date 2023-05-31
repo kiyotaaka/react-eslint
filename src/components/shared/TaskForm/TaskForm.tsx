@@ -43,9 +43,8 @@ const TaskForm: React.FC = () => {
   };
 
   const onFinish = async (values: TTaskItem) => {
-    if (task) {
-      await editTask({ ...values, id: task.id });
-    } else {
+    if (task) await editTask({ ...values, id: task.id });
+    else {
       await addTask({
         ...values,
         completed: !!values.completed,
@@ -57,18 +56,22 @@ const TaskForm: React.FC = () => {
   React.useEffect(() => {
     if (addSuccess) {
       message.success(t('successTask'));
-      form.resetFields();
-      toggleModal(false);
+      return;
     }
     if (editSuccess) {
       message.success(t('successEditTask'));
-      form.resetFields();
-      toggleModal(false);
+      return;
     }
     if (addError || editError) {
       message.error(t('errorTask'));
-      form.resetFields();
+    }
+  }, [addError, addSuccess, editError, editSuccess]);
+
+  React.useEffect(() => {
+    if (addSuccess || editSuccess || addError || editError || !modalShow) {
       toggleModal(false);
+      form.resetFields();
+      setTask(null);
     }
   }, [addError, addSuccess, editError, editSuccess]);
 
@@ -80,12 +83,6 @@ const TaskForm: React.FC = () => {
       });
     }
   }, [form, task]);
-  React.useEffect(() => {
-    if (!modalShow) {
-      form.resetFields();
-      setTask(null);
-    }
-  }, [form, modalShow]);
 
   return (
     <UiModal
