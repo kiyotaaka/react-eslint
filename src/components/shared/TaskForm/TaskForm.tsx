@@ -54,24 +54,15 @@ const TaskForm: React.FC = () => {
     }
   };
   React.useEffect(() => {
-    if (addSuccess) {
-      message.success(t('successTask'));
-      return;
-    }
-    if (editSuccess) {
-      message.success(t('successEditTask'));
-      return;
-    }
-    if (addError || editError) {
-      message.error(t('errorTask'));
-    }
-  }, [addError, addSuccess, editError, editSuccess]);
+    if (addSuccess) return message.success(t('successTask'));
+    if (editSuccess) return message.success(t('successEditTask'));
+    if (editError || addError) return message.error(t('errorTask'));
+  }, [addSuccess, editSuccess, editError, addError]);
 
   React.useEffect(() => {
-    if (addSuccess || editSuccess || addError || editError || !modalShow) {
+    if (addSuccess || editSuccess || addError || editError) {
       toggleModal(false);
       form.resetFields();
-      setTask(null);
     }
   }, [addError, addSuccess, editError, editSuccess]);
 
@@ -83,6 +74,10 @@ const TaskForm: React.FC = () => {
       });
     }
   }, [form, task]);
+
+  React.useEffect(() => {
+    if (!modalShow) setTask(null);
+  }, [modalShow]);
 
   return (
     <UiModal

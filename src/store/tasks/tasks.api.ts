@@ -10,7 +10,7 @@ export const tasksApi = api.injectEndpoints({
       }),
       providesTags: ['tasks'],
     }),
-    addTask: builder.mutation<any, TTaskItem>({
+    addTask: builder.mutation<TTaskItem, TTaskItem>({
       query: (body) => ({
         url: '/tasks',
         method: 'POST',

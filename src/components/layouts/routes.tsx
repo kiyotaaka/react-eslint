@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { t } from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { AiOutlinePlus } from 'react-icons/ai';
 import { BsFillClipboardCheckFill, BsUiRadiosGrid } from 'react-icons/bs';
-import { ImFolderOpen } from 'react-icons/im';
 import { MdOutlineNotificationImportant, MdToday } from 'react-icons/md';
 import { TbNotesOff } from 'react-icons/tb';
 
